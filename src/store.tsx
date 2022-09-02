@@ -5,6 +5,7 @@ interface IStore {
 	setMessage: (message: string) => void;
 	colors: string[];
 	addColor: (color: string) => void;
+	deleteLastColor: () => void;
 }
 
 export const useStore = create<IStore>(
@@ -17,6 +18,13 @@ export const useStore = create<IStore>(
 			set((state) => {
 				const _state = { ...state };
 				state.colors.push(color);
+				return _state;
+			});
+		},
+		deleteLastColor: () => {
+			set((state) => {
+				const _state = { ...state };
+				_state.colors.pop();
 				return _state;
 			});
 		},
