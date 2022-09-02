@@ -13,6 +13,7 @@ interface IStore {
 		emailIsConfirmed: boolean;
 	};
 	logUserIn: () => void;
+	logUserOut: () => void;
 }
 
 export const useStore = create<IStore>(
@@ -57,7 +58,14 @@ export const useStore = create<IStore>(
 		logUserIn: () => {
 			set((state) => {
 				const _state = { ...state };
-				_state.currentUserState.isLoggedIn = !_state.currentUserState.isLoggedIn;
+				_state.currentUserState.isLoggedIn = true;
+				return _state;
+			});
+		},
+		logUserOut: () => {
+			set((state) => {
+				const _state = { ...state };
+				_state.currentUserState.isLoggedIn = false;
 				return _state;
 			});
 		},

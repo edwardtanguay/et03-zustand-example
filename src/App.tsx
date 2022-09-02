@@ -44,7 +44,7 @@ function App() {
 					<div className="data">
 						<label>User panel:</label>
 						<button onClick={() => store.logUserIn()}> Login</button>
-						<button>Logout</button>
+						<button onClick={() => store.logUserOut()}> Logout</button>
 					</div>
 
 				</section>
