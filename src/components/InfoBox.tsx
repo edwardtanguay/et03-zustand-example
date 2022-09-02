@@ -13,6 +13,18 @@ export const InfoBox = () => {
 				<label>Colors:</label>
 				<span className="theValue">{store.colors.join(', ')}</span>
 			</div>
+			<div className="row">
+				<label>User is online:</label>
+				<span className="theValue">
+					{store.currentUserState.isLoggedIn ? 'YES' : 'no'}
+				</span>
+			</div>
+			<div className="row">
+				<label>User's email is confirmed:</label>
+				<span className="theValue">
+					{store.currentUserState.emailIsConfirmed ? 'YES' : 'no'}
+				</span>
+			</div>
 		</div>
 	);
 };

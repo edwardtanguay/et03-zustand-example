@@ -7,6 +7,12 @@ interface IStore {
 	addColor: (color: string) => void;
 	deleteLastColor: () => void;
 	deleteAllColors: () => void;
+	deleteRedAndVowels: () => void;
+	currentUserState: {
+		isLoggedIn: boolean;
+		emailIsConfirmed: boolean;
+	};
+	logUserIn: () => void;
 }
 
 export const useStore = create<IStore>(
@@ -33,6 +39,25 @@ export const useStore = create<IStore>(
 			set((state) => {
 				const _state = { ...state };
 				_state.colors = [];
+				return _state;
+			});
+		},
+		deleteRedAndVowels: () => {
+			set((state) => {
+				const _state = { ...state };
+				_state.message = _state.message.replace(/[aeiou]/gi, '');
+				_state.colors = _state.colors.filter((m) => m !== 'red');
+				return _state;
+			});
+		},
+		currentUserState: {
+			isLoggedIn: false,
+			emailIsConfirmed: false,
+		},
+		logUserIn: () => {
+			set((state) => {
+				const _state = { ...state };
+				_state.currentUserState.isLoggedIn = !_state.currentUserState.isLoggedIn;
 				return _state;
 			});
 		},

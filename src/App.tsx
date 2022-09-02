@@ -11,6 +11,7 @@ function App() {
 
 			<main>
 				<section className="controlArea">
+
 					<div className="data">
 						<label>Message:</label>
 						<input
@@ -34,6 +35,18 @@ function App() {
 						<button onClick={() => store.deleteLastColor()}>delete last color</button>
 						<button onClick={() => store.deleteAllColors()}>delete all colors</button>
 					</div>
+
+					<div className="data">
+						<label>Change numerous state variables:</label>
+						<button onClick={() => store.deleteRedAndVowels()}>delete color "red" and all vowels</button>
+					</div>
+
+					<div className="data">
+						<label>User panel:</label>
+						<button onClick={() => store.logUserIn()}> Login</button>
+						<button>Logout</button>
+					</div>
+
 				</section>
 				<section className="dataArea">
 					<InfoBox />
