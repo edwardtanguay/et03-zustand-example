@@ -47,6 +47,11 @@ function App() {
 						<button onClick={() => store.logUserOut()}> Logout</button>
 					</div>
 
+					<div className="data">
+						<label>TechBooks</label>
+						<button onClick={() => store.loadTechBooks()}>load tech books</button>
+					</div>
+
 				</section>
 				<section className="dataArea">
 					<InfoBox />

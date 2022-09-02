@@ -1,4 +1,4 @@
-import { useStore } from '../store';
+import { useStore, ITechBook } from '../store';
 
 export const InfoBox = () => {
 	const store = useStore((state) => state);
@@ -23,6 +23,16 @@ export const InfoBox = () => {
 				<label>User's email is confirmed:</label>
 				<span className="theValue">
 					{store.currentUserState.emailIsConfirmed ? 'YES' : 'no'}
+				</span>
+			</div>
+			<div className="row">
+				<label>Tech Books:</label>
+				<span className="theValue">
+					{store.techBooks.map((techBook: ITechBook, i) => {
+						return (
+							<li key={i}>{techBook.title}</li>
+					)
+				})}
 				</span>
 			</div>
 		</div>

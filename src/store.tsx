@@ -1,4 +1,12 @@
 import create from 'zustand';
+import axios from 'axios';
+
+export interface ITechBook {
+	idCode: string;
+	title: string;
+	description: string;
+	language: string;
+}
 
 interface IStore {
 	message: string;
@@ -14,6 +22,8 @@ interface IStore {
 	};
 	logUserIn: () => void;
 	logUserOut: () => void;
+	techBooks: ITechBook[];
+	loadTechBooks: () => void;
 }
 
 export const useStore = create<IStore>(
@@ -66,6 +76,20 @@ export const useStore = create<IStore>(
 			set((state) => {
 				const _state = { ...state };
 				_state.currentUserState.isLoggedIn = false;
+				return _state;
+			});
+		},
+		techBooks: [],
+		loadTechBooks: () => {
+			set((state) => {
+				const _state = { ...state };
+				_state.techBooks.push(
+				{
+					title: 'ttt',
+					idCode: 'iii',
+					language: 'lll',
+					description: 'ddd',
+				});
 				return _state;
 			});
 		},
