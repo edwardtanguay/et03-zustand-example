@@ -32,6 +32,7 @@ function App() {
 							yellow
 						</button>
 						<button onClick={() => store.deleteLastColor()}>delete last color</button>
+						<button onClick={() => store.deleteAllColors()}>delete all colors</button>
 					</div>
 				</section>
 				<section className="dataArea">
