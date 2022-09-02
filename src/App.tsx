@@ -19,13 +19,14 @@ function App() {
 							onChange={(e) => store.setMessage(e.target.value)}
 						/>
 					</div>
+
+					<div className="data">
+						<label>Colors:</label>
+						<button onClick={() => store.addColor('blue')}>
+							blue
+						</button>
+					</div>
 				</section>
-
-				<div className="data">
-					<label>Colors</label>
-					<button onClick={() => store.addColor('blue')}>blue</button>
-				</div>
-
 				<section className="dataArea">
 					<InfoBox />
 				</section>
