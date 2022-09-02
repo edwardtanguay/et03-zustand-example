@@ -28,11 +28,11 @@ export const InfoBox = () => {
 			<div className="row">
 				<label>Tech Books:</label>
 				<span className="theValue">
-					{store.techBooks.map((techBook: ITechBook, i) => {
-						return (
-							<li key={i}>{techBook.title}</li>
-					)
-				})}
+					<ul>
+						{store.techBooks.map((techBook: ITechBook, i) => {
+							return <li key={i}>{techBook.title}</li>;
+						})}
+					</ul>
 				</span>
 			</div>
 		</div>

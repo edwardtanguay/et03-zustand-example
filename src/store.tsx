@@ -1,6 +1,8 @@
 import create from 'zustand';
 import axios from 'axios';
 
+const techBooksUrl = 'https://edwardtanguay.netlify.app/share/techBooks.json';
+
 export interface ITechBook {
 	idCode: string;
 	title: string;
@@ -80,16 +82,25 @@ export const useStore = create<IStore>(
 			});
 		},
 		techBooks: [],
-		loadTechBooks: () => {
+		loadTechBooks: async () => {
+			const rawTechBooks = (await axios.get(techBooksUrl)).data;
+			console.log(rawTechBooks);
+			const _techBooks: ITechBook[] = [];
+			rawTechBooks.forEach((rawTechBook: any) => {
+				const techBook: ITechBook = {
+					title: rawTechBook.title,
+					description: rawTechBook.description,
+					language:
+						rawTechBook.language === ''
+							? 'english'
+							: rawTechBook.language,
+					idCode: rawTechBook.idCode,
+				};
+				_techBooks.push(techBook);
+			});
 			set((state) => {
 				const _state = { ...state };
-				_state.techBooks.push(
-				{
-					title: 'ttt',
-					idCode: 'iii',
-					language: 'lll',
-					description: 'ddd',
-				});
+				_state.techBooks = _techBooks;
 				return _state;
 			});
 		},
