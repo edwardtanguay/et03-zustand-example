@@ -27,7 +27,6 @@ function App() {
 					<InfoBox message={message}  />
 				</section>
 			</main>
-			<p>message: {message}</p>
 		</div>
 	)
 }
