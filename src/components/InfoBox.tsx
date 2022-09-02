@@ -1,13 +1,11 @@
-interface IInfoBoxProps {
-	message: string;
-}
+import { useStore } from '../store';
 
-export const InfoBox = (props: IInfoBoxProps) => {
-	const { message } =  props;
+export const InfoBox = () => {
+	const store = useStore((state) => state);
 	return (
 		<>
 			<h2>Another Component</h2>
-			<p>{message}</p>
+			<p>{store.message}</p>
 		</>
 	);
 };
